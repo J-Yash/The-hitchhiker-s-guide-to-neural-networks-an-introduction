@@ -54,11 +54,11 @@ def preprocess():
 # Initializing Weights and Biases
 
 
-def weight_initialization():
-    W1 = np.random.randn(4, 6)
-    b1 = np.zeros([4, 1])
+def weight_initialization(number_of_hidden_nodes):
+    W1 = np.random.randn(number_of_hidden_nodes, 6)
+    b1 = np.zeros([number_of_hidden_nodes, 1])
 
-    W2 = np.random.randn(1, 4)
+    W2 = np.random.randn(1, number_of_hidden_nodes)
     b2 = np.zeros([1, 1])
 
     return W1, b1, W2, b2
@@ -108,7 +108,8 @@ if __name__ == "__main__":
     X_train, Y_train, X_test, Y_test = preprocess()
 
     # STEP 2: INITIALIZING WEIGHTS AND BIASES
-    W1, b1, W2, b2 = weight_initialization()
+    number_of_hidden_nodes = 4
+    W1, b1, W2, b2 = weight_initialization(number_of_hidden_nodes)
 
     # Setting the number of iterations for gradient descent
     num_of_iterations = 50000
